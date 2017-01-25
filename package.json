@@ -1,0 +1,32 @@
+{
+  "name": "poc-inversify-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mueees/poc-inversify-express.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mueees/poc-inversify-express/issues"
+  },
+  "homepage": "https://github.com/mueees/poc-inversify-express#readme",
+  "dependencies": {
+    "body-parser": "~1.15.2",
+    "cookie-parser": "~1.4.3",
+    "express": "4.14.0",
+    "inversify": "^3.0.0",
+    "jade": "~1.11.0",
+    "reflect-metadata": "^0.1.9"
+  },
+  "devDependencies": {
+    "@types/core-js": "^0.9.35",
+    "@types/node": "^7.0.3",
+    "typescript": "^2.1.5"
+  }
+}
