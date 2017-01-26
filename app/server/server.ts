@@ -1,12 +1,12 @@
 import * as express from "express";
-import {getContainer} from "./route-container";
-import {setKernel} from "./kernel";
+import {getRouteContainer} from "./route-container";
+import {setContainer} from "./container-storage";
 
 export class Server {
     private app: express.Application = express();
 
     constructor(kernel) {
-        setKernel(kernel)
+        setContainer(kernel)
     }
 
     build(): express.Application {
@@ -16,7 +16,7 @@ export class Server {
     }
 
     private useRoutes() {
-        getContainer().getRoutes().forEach((route) => {
+        getRouteContainer().getRoutes().forEach((route) => {
             this.app.use(route.path || '*', ...(route.middleware || []), route.router);
         });
     }

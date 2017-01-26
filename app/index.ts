@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import {Server} from "./framework/server";
+import {Server} from "./server";
 import container from "./container";
 
 // create server

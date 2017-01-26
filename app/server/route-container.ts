@@ -2,7 +2,7 @@ import * as express from "express";
 
 var controllerContainer: RouteContainer;
 
-export function getContainer() {
+export function getRouteContainer() {
     if (!controllerContainer) {
         controllerContainer = new RouteContainer();
     }

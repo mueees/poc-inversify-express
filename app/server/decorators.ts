@@ -1,10 +1,10 @@
 import * as express from "express";
-import {getKernel} from "./kernel";
-import {getContainer} from "./route-container";
+import {getContainer} from "./container-storage";
+import {getRouteContainer} from "./route-container";
 
 export function Controller(path: string | RegExp, ...middleware: Function[]) {
     return function (target: any) {
-        getContainer().registerController(path, middleware, target);
+        getRouteContainer().registerController(path, middleware, target);
     }
 }
 
@@ -31,8 +31,8 @@ export function Delete(path: string | RegExp, ...middleware: Function[]) {
 }
 export function Method(method: string, path: string | RegExp, ...middleware: Function[]) {
     return function (target: any, key: string, value: any) {
-        getContainer().registerHandler(method, path, target, middleware, (req: express.Request, res: express.Response, next: any) => {
-            var result = getKernel().get(target.constructor.name)[key](req, res, next);
+        getRouteContainer().registerHandler(method, path, target, middleware, (req: express.Request, res: express.Response, next: any) => {
+            var result = getContainer().get(target.constructor.name)[key](req, res, next);
 
             if (result || !res.headersSent) {
                 res.send(result);

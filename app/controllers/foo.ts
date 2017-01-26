@@ -1,5 +1,5 @@
 import * as express from "express";
-import {Controller, Get} from "../framework/decorators";
+import {Controller, Get} from "../server";
 import {injectable} from "inversify";
 
 @Controller('/foo')
