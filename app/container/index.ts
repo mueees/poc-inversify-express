@@ -1,9 +1,9 @@
-import {FooController} from "../controllers/foo";
+import {ProductController} from "../controllers/products";
 import {Container} from "inversify";
 
 // set up container
 var container = new Container();
 
-container.bind<FooController>('FooController').to(FooController);
+container.bind<ProductController>('ProductController').to(ProductController);
 
 export default container;

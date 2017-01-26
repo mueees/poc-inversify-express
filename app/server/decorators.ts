@@ -5,6 +5,8 @@ import {getRouteContainer} from "./route-container";
 export function Controller(path: string | RegExp, ...middleware: Function[]) {
     return function (target: any) {
         getRouteContainer().registerController(path, middleware, target);
+
+        return target;
     }
 }
 
@@ -32,11 +34,7 @@ export function Delete(path: string | RegExp, ...middleware: Function[]) {
 export function Method(method: string, path: string | RegExp, ...middleware: Function[]) {
     return function (target: any, key: string, value: any) {
         getRouteContainer().registerHandler(method, path, target, middleware, (req: express.Request, res: express.Response, next: any) => {
-            var result = getContainer().get(target.constructor.name)[key](req, res, next);
-
-            if (result || !res.headersSent) {
-                res.send(result);
-            }
+            getContainer().get(target.constructor.name)[key](req, res, next);
         });
     }
 }

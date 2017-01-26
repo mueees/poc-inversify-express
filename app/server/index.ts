@@ -1,2 +1,2 @@
 export {Server} from './server';
-export {Get, Controller} from './decorators';
+export * from './decorators';
